@@ -5,12 +5,11 @@ import jakarta.enterprise.inject.Default;
 
 @ApplicationScoped
 // @Default
-public class NotificadorSms implements Notificador {
+public class NotificadorWhatsap implements Notificador {
 
-    public void enviar(String correo, String mensaje) {
-        System.out.println("Se envia el mail al numero: " + correo);
+    public void enviar(String wat, String mensaje) {
+        System.out.println("Se envia el whatsap : " + wat);
         System.out.println("Con el mensaje: " + mensaje);
 
     }
-
 }

@@ -1,9 +1,11 @@
 package uce.edu.pa2.api.bodega;
 
+import io.quarkus.arc.Unremovable;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 @ApplicationScoped
+@Unremovable
 public class PedidoService {
 
     // @Inject

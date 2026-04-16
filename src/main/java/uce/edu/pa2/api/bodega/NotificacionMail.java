@@ -4,7 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Default;
 
 @ApplicationScoped
-@Default
+// @Default
 public class NotificacionMail implements Notificador {
 
     public void enviar(String destino, String mensaje) {
