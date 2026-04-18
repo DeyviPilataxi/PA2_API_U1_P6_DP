@@ -5,3 +5,4 @@ public interface Notificador {
     public void enviar(String destino, String mensaje);
 
 }
+//bajo acomplamiento lata cohesion

@@ -12,6 +12,7 @@ public class NotificadorSelector {
     private NotificadorSms sms;
 
     @Inject
+
     private NotificadorWhatsap wat;
 
     public Notificador seleccionar(double total) {

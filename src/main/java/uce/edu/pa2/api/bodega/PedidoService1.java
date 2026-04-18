@@ -14,3 +14,6 @@ public class PedidoService1 {
 
     }
 }
+//pedido pago por tarjeta de credito o efectivo 
+//el comprobante va hacer un pdf y el otro papel fisico y el otro un xml 3 tipos de comprobante 
+// a travez de la defiicion del que pero no del como ------------es la ineterfaz 

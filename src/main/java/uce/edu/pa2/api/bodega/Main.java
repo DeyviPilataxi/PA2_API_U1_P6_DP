@@ -22,8 +22,14 @@ public class Main {
 
         // modelos de IoC
         // 1 DI
-        // @Inject
-        // private PedidoService pedidoService;
+        @Inject
+        private PedidoService pedidoService;
+
+        @Inject
+        private PagoTarjetaCredito pagoTar;
+
+        @Inject
+        private PagoEfectivo pagoEfe;
 
         // 2. Service Locator LookuP
         // con el current accedo al contenedor etsoy buscando manualmente la dependencia
@@ -32,21 +38,23 @@ public class Main {
 
         @Override
         public int run(String... args) {
-            PedidoService pedidoService = CDI.current().select(PedidoService.class).get();
+           
 
             System.out.println("caso 1 ----------------------");
             Pedido pedido = new Pedido("Deyvi Pilataxi", "Libro", 3, "ragonzaga@uce.edu.ec");
 
             // PedidoService service = new PedidoService();
-            pedidoService.registrar(pedido);
+            this.pedidoService.registrar(pedido, pagoEfe);
+
 
             // caso 2
 
-            /*
-             * System.out.println("caso 2 -----------------------");
-             * Pedido pedido2 = new Pedido("Joel", "jugo", 120, "djpilataxi@uce.edu.ec");
-             * pedidoService.registrar(pedido2);
-             * 
+            
+             System.out.println("caso 2 -----------------------");
+             Pedido pedido2 = new Pedido("Joel", "jugo", 120, "djpilataxi@uce.edu.ec");
+             this.pedidoService.registrar(pedido2, pagoTar);
+
+             /* 
              * System.out.println("caso 3-------------------------");
              * Pedido pedido3 = new Pedido("maria", "agua", 75, "deyvi@uce.edu.ec");
              * pedidoService.registrar(pedido3);
