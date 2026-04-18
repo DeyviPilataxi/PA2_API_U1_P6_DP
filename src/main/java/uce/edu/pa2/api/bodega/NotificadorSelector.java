@@ -15,15 +15,25 @@ public class NotificadorSelector {
 
     private NotificadorWhatsap wat;
 
-    public Notificador seleccionar(double total) {
+    @Inject
+    private NotificadorFisico fisico;
 
-        if (total > 100) {
-            return mail;
-        } else if (total < 50) {
-            return wat;
+    @Inject
+    private NotificadorPdf pdf;
+
+    public Notificador enviarComprobante(String destino) {
+
+       
+        if (destino != null && !destino.isBlank()) {
+
+            
+            return pdf; 
         } else {
-            return sms;
+            return fisico; 
         }
+    }
 
     }
-}
+
+     
+
