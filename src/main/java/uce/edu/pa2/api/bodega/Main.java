@@ -13,6 +13,9 @@ import uce.edu.pa2.api.AmbitoInject;
 import uce.edu.pa2.api.AmbitoRequest;
 import uce.edu.pa2.api.AmbitoSingleton;
 import uce.edu.pa2.api.ClaseIntermedia;
+import uce.edu.pa2.api.EstadisticasVentasGlobales;
+import uce.edu.pa2.api.ProcesadorVentaService;
+import uce.edu.pa2.api.Venta;
 
 @QuarkusMain
 public class Main {
@@ -44,20 +47,28 @@ public class Main {
          * // CDI.current().select(PedidoService.class).get();
          */
 
-        @Inject
-        private AmbitoAplicacion ambitoAplicacion;
+        /*
+         * @Inject
+         * private AmbitoAplicacion ambitoAplicacion;
+         * 
+         * @Inject
+         * private ClaseIntermedia claseIntermedia;
+         * 
+         * @Inject
+         * private AmbitoRequest ambitoRequest;
+         * 
+         * @Inject
+         * private AmbitoInject ambitoInject;
+         * 
+         * @Inject
+         * private AmbitoSingleton ambitoSingleton;
+         */
 
         @Inject
-        private ClaseIntermedia claseIntermedia;
+        private ProcesadorVentaService procesadorVentaService;
 
         @Inject
-        private AmbitoRequest ambitoRequest;
-
-        @Inject
-        private AmbitoInject ambitoInject;
-
-        @Inject
-        private AmbitoSingleton ambitoSingleton;
+        private EstadisticasVentasGlobales estadisticasVentasGlobales;
 
         @Override
         public int run(String... args) {
@@ -84,34 +95,48 @@ public class Main {
              * pedidoService.registrar(pedido3);
              */
 
-            System.out.println(this.ambitoAplicacion);
-
-            System.out.println(this.ambitoAplicacion.incrementar());
-            System.out.println(this.ambitoAplicacion.incrementar());
-            System.out.println(this.ambitoAplicacion.incrementar());
-
-            this.claseIntermedia.imprimirObjetoValor();
-
             /*
+             * System.out.println(this.ambitoAplicacion);
+             * System.out.println(this.ambitoAplicacion.incrementar());
+             * System.out.println(this.ambitoAplicacion.incrementar());
+             * System.out.println(this.ambitoAplicacion.incrementar());
+             * 
+             * this.claseIntermedia.imprimirObjetoValor();
+             * 
+             * /*
              * System.out.println("----------------Ambito Request---------");
              * System.out.println(this.ambitoRequest.incrementar());
              * System.out.println(this.ambitoRequest.incrementar());
              * System.out.println(this.ambitoRequest.incrementar());
              */
 
-            System.out.println("---------------Ambito Depent----------");
-            System.out.println(this.ambitoInject.incrementar());
-            System.out.println(this.ambitoInject.incrementar());
-            System.out.println(this.ambitoInject.incrementar());
+            /*
+             * System.out.println("---------------Ambito Depent----------");
+             * System.out.println(this.ambitoInject.incrementar());
+             * System.out.println(this.ambitoInject.incrementar());
+             * System.out.println(this.ambitoInject.incrementar());
+             * 
+             * this.claseIntermedia.imprimirObjetoInject();
+             * 
+             * System.out.println("-----------Ambito singleton------------");
+             * System.out.println(this.ambitoSingleton.incrementar());
+             * System.out.println(this.ambitoSingleton.incrementar());
+             * System.out.println(this.ambitoSingleton.incrementar());
+             * this.claseIntermedia.imprimirObjetoValorSingleton();
+             */
 
-            this.claseIntermedia.imprimirObjetoInject();
+            Venta v1 = new Venta("Deyvi pilataxi", 70);
+            this.procesadorVentaService.procesar(v1);
 
-            System.out.println("-----------Ambito singleton------------");
-            System.out.println(this.ambitoSingleton.incrementar());
-            System.out.println(this.ambitoSingleton.incrementar());
-            System.out.println(this.ambitoSingleton.incrementar());
-            this.claseIntermedia.imprimirObjetoValorSingleton();
+            Venta v2 = new Venta("Joel Guaina", 40);
+            this.procesadorVentaService.procesar(v2);
+
+            Venta v3 = new Venta("Mishell Pilataxi", 20);
+            this.procesadorVentaService.procesar(v3);
+
+            this.estadisticasVentasGlobales.mostrarEstadisticasGlobales();
             return 0;
+
         }
 
     }

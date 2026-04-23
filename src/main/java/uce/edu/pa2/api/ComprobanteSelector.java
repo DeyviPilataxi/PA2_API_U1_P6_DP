@@ -15,6 +15,8 @@ public class ComprobanteSelector {
     @Inject
     private NotificadorPdf pdf;
 
+
+
     public NotificadorCliente enviarCompNotificadorCliente(String destino) {
         if (destino != null && !destino.trim().isEmpty()) {
             return pdf;
@@ -22,5 +24,7 @@ public class ComprobanteSelector {
             return fis;
         }
     }
+
+    
 
 }
