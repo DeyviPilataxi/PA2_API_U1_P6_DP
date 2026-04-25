@@ -14,7 +14,9 @@ import uce.edu.pa2.api.AmbitoRequest;
 import uce.edu.pa2.api.AmbitoSingleton;
 import uce.edu.pa2.api.ClaseIntermedia;
 import uce.edu.pa2.api.EstadisticasVentasGlobales;
+import uce.edu.pa2.api.ProcesadorVentaLineaService;
 import uce.edu.pa2.api.ProcesadorVentaService;
+import uce.edu.pa2.api.ProcesadorVentaService1;
 import uce.edu.pa2.api.Venta;
 
 @QuarkusMain
@@ -69,6 +71,12 @@ public class Main {
 
         @Inject
         private EstadisticasVentasGlobales estadisticasVentasGlobales;
+
+        @Inject
+        private ProcesadorVentaService1 procesadorVentaService1;
+
+        @Inject
+        private ProcesadorVentaLineaService procesadorVentaLineaService;
 
         @Override
         public int run(String... args) {
@@ -133,6 +141,15 @@ public class Main {
 
             Venta v3 = new Venta("Mishell Pilataxi", 20);
             this.procesadorVentaService.procesar(v3);
+
+            Venta v4 = new Venta("Alejandra Paredes", 20);
+            this.procesadorVentaService1.procesar(v4);
+
+            Venta v5 = new Venta("Alejandra Paredes", 20);
+            this.procesadorVentaService1.procesar(v5);
+
+            Venta v6 = new Venta("Alejandra Perex", 20);
+            this.procesadorVentaLineaService.procesar(v6);
 
             this.estadisticasVentasGlobales.mostrarEstadisticasGlobales();
             return 0;

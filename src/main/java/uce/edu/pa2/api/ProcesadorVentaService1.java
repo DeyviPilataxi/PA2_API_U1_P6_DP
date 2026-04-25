@@ -4,7 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 @ApplicationScoped
-public class ProcesadorVentaService {
+public class ProcesadorVentaService1 {
 
     @Inject // aqui como inyecto trakingventa se crea un objeto
     private TrakingVenta trakingVenta;

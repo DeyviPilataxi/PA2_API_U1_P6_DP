@@ -4,9 +4,9 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 @ApplicationScoped
-public class ProcesadorVentaService {
+public class ProcesadorVentaLineaService {
 
-    @Inject // aqui como inyecto trakingventa se crea un objeto
+    @Inject
     private TrakingVenta trakingVenta;
 
     @Inject
@@ -17,11 +17,6 @@ public class ProcesadorVentaService {
         this.trakingVenta.iniciar();
 
         System.out.println("Procesando pedido ");
-        // esta consultando el stock de cada item,
-        // esta consultando en la base de datos
-        // finaliza la venta para saber cuanto duro la venta
-
-        // voy a similar teimpo de demora
 
         try {
             Thread.sleep(100);
