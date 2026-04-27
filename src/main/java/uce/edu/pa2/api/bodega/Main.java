@@ -139,7 +139,7 @@ public class Main {
             Venta v2 = new Venta("Joel Guaina", 40);
             this.procesadorVentaService.procesar(v2);
 
-            Venta v3 = new Venta("Mishell Pilataxi", 20);
+            Venta v3 = new Venta("Mishell Sinche", 20);
             this.procesadorVentaService.procesar(v3);
 
             Venta v4 = new Venta("Alejandra Paredes", 20);

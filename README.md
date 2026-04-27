@@ -1,4 +1,10 @@
-# pa2_api_u1_p6_dp
+##  Documentación
+
+ [Ver documentación de Scopes](ejemplos.md)
+
+
+# pa2_api_u1_p6_dp 
+
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
