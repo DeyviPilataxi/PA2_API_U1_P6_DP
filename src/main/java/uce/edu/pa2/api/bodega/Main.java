@@ -14,9 +14,11 @@ import uce.edu.pa2.api.AmbitoRequest;
 import uce.edu.pa2.api.AmbitoSingleton;
 import uce.edu.pa2.api.ClaseIntermedia;
 import uce.edu.pa2.api.EstadisticasVentasGlobales;
+import uce.edu.pa2.api.ProcesadorInventarioService;
 import uce.edu.pa2.api.ProcesadorVentaLineaService;
 import uce.edu.pa2.api.ProcesadorVentaService;
 import uce.edu.pa2.api.ProcesadorVentaService1;
+import uce.edu.pa2.api.ProcesadorVentaServiceTiempo;
 import uce.edu.pa2.api.Venta;
 
 @QuarkusMain
@@ -66,17 +68,27 @@ public class Main {
          * private AmbitoSingleton ambitoSingleton;
          */
 
-        @Inject
-        private ProcesadorVentaService procesadorVentaService;
+        /*
+         * @Inject
+         * private ProcesadorVentaService procesadorVentaService;
+         * 
+         * @Inject
+         * private EstadisticasVentasGlobales estadisticasVentasGlobales;
+         * 
+         * @Inject
+         * private ProcesadorVentaService1 procesadorVentaService1;
+         * 
+         * @Inject
+         * private ProcesadorVentaLineaService procesadorVentaLineaService;
+         */
+        // @Inject
+        // private EstadisticasVentasGlobales estadisticasVentasGlobales;
 
         @Inject
-        private EstadisticasVentasGlobales estadisticasVentasGlobales;
+        private ProcesadorVentaServiceTiempo procesadorVentaServiceTiempo;
 
         @Inject
-        private ProcesadorVentaService1 procesadorVentaService1;
-
-        @Inject
-        private ProcesadorVentaLineaService procesadorVentaLineaService;
+        private ProcesadorInventarioService procesadorInventarioService;
 
         @Override
         public int run(String... args) {
@@ -133,25 +145,36 @@ public class Main {
              * this.claseIntermedia.imprimirObjetoValorSingleton();
              */
 
-            Venta v1 = new Venta("Deyvi pilataxi", 70);
-            this.procesadorVentaService.procesar(v1);
+            /*
+             * Venta v1 = new Venta("Deyvi pilataxi", 70);
+             * this.procesadorVentaService.procesar(v1);
+             * 
+             * Venta v2 = new Venta("Joel Guaina", 40);
+             * this.procesadorVentaService.procesar(v2);
+             * 
+             * Venta v3 = new Venta("Mishell Sinche", 20);
+             * this.procesadorVentaService.procesar(v3);
+             * 
+             * Venta v4 = new Venta("Alejandra Paredes", 20);
+             * this.procesadorVentaService1.procesar(v4);
+             * 
+             * Venta v5 = new Venta("Alejandra Paredes", 20);
+             * this.procesadorVentaService1.procesar(v5);
+             * 
+             * Venta v6 = new Venta("Alejandra Pere", 20);
+             * this.procesadorVentaLineaService.procesar(v6);
+             * 
+             * this.estadisticasVentasGlobales.mostrarEstadisticasGlobales();
+             */
 
-            Venta v2 = new Venta("Joel Guaina", 40);
-            this.procesadorVentaService.procesar(v2);
+            Venta v1 = new Venta("Deyvi Joel", 20);
+            this.procesadorVentaServiceTiempo.procesar(v1);
+            this.procesadorVentaServiceTiempo.reprocesar(v1);
 
-            Venta v3 = new Venta("Mishell Sinche", 20);
-            this.procesadorVentaService.procesar(v3);
+            this.procesadorInventarioService.registrarInvetario(v1);
 
-            Venta v4 = new Venta("Alejandra Paredes", 20);
-            this.procesadorVentaService1.procesar(v4);
+            // this.estadisticasVentasGlobales.mostrarEstadisticasGlobales();
 
-            Venta v5 = new Venta("Alejandra Paredes", 20);
-            this.procesadorVentaService1.procesar(v5);
-
-            Venta v6 = new Venta("Alejandra Perex", 20);
-            this.procesadorVentaLineaService.procesar(v6);
-
-            this.estadisticasVentasGlobales.mostrarEstadisticasGlobales();
             return 0;
 
         }
