@@ -1,11 +1,13 @@
 package uce.edu.pa2.api;
 
+import jakarta.annotation.Priority;
 import jakarta.interceptor.AroundInvoke;
 import jakarta.interceptor.Interceptor;
 import jakarta.interceptor.InvocationContext;
 
 @MedirTiempo // cada vez que un metodo tenga esta anotacion va a utilizar la clase
 @Interceptor
+@Priority(3)
 public class MedirTiempoInterceptor {
 
     @AroundInvoke // decirle a este metodo que se va a ejecutar el interceptor alredor de la
@@ -13,6 +15,7 @@ public class MedirTiempoInterceptor {
     public Object medir(InvocationContext context) throws Exception {
 
         System.out.println("se ejecuto antes del metodo");
+        System.out.println("metodo interceotado: " + context.getMethod().getName());
 
         long inicio = System.currentTimeMillis();
 

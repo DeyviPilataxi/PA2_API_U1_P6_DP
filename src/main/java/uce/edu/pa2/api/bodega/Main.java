@@ -169,9 +169,9 @@ public class Main {
 
             Venta v1 = new Venta("Deyvi Joel", 20);
             this.procesadorVentaServiceTiempo.procesar(v1);
-            this.procesadorVentaServiceTiempo.reprocesar(v1);
+            // this.procesadorVentaServiceTiempo.reprocesar(v1);
 
-            this.procesadorInventarioService.registrarInvetario(v1);
+            // this.procesadorInventarioService.registrarInvetario(v1);
 
             // this.estadisticasVentasGlobales.mostrarEstadisticasGlobales();
 

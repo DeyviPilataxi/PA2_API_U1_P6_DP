@@ -10,7 +10,10 @@ public class ProcesadorVentaServiceTiempo {
     private EstadisticasVentasGlobales estadisticasVentasGlobales;
 
     @MedirTiempo
+    @Log
     public void procesar(Venta venta) {
+        // System.out.println("entro al metodo con lossiguietes valores :" +
+        // venta.getCliente());
 
         // inicia la venta
         System.out.println("Procesando pedido ");
@@ -29,6 +32,7 @@ public class ProcesadorVentaServiceTiempo {
         // REGISTRAR ESTADISTICAS
         this.estadisticasVentasGlobales.registrarVenta(venta.getTotal());
         System.out.println("fializando pedido ");
+        // this.reprocesar(venta);
 
     }
 
