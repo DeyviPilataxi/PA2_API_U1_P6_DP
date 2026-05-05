@@ -7,7 +7,7 @@ import jakarta.interceptor.InvocationContext;
 
 @Log // cada vez que un metodo tenga esta anotacion va a utilizar la clase
 @Interceptor
-@Priority(2)
+@Priority(1)
 public class LogInterceptor {
 
     @AroundInvoke

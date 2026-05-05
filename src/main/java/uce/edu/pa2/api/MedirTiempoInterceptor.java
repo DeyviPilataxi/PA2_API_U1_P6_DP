@@ -7,7 +7,7 @@ import jakarta.interceptor.InvocationContext;
 
 @MedirTiempo // cada vez que un metodo tenga esta anotacion va a utilizar la clase
 @Interceptor
-@Priority(3)
+@Priority(2)
 public class MedirTiempoInterceptor {
 
     @AroundInvoke // decirle a este metodo que se va a ejecutar el interceptor alredor de la

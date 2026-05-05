@@ -13,7 +13,9 @@ import uce.edu.pa2.api.AmbitoInject;
 import uce.edu.pa2.api.AmbitoRequest;
 import uce.edu.pa2.api.AmbitoSingleton;
 import uce.edu.pa2.api.ClaseIntermedia;
+import uce.edu.pa2.api.Compra;
 import uce.edu.pa2.api.EstadisticasVentasGlobales;
+import uce.edu.pa2.api.ProcesadorCompraService;
 import uce.edu.pa2.api.ProcesadorInventarioService;
 import uce.edu.pa2.api.ProcesadorVentaLineaService;
 import uce.edu.pa2.api.ProcesadorVentaService;
@@ -84,11 +86,16 @@ public class Main {
         // @Inject
         // private EstadisticasVentasGlobales estadisticasVentasGlobales;
 
-        @Inject
-        private ProcesadorVentaServiceTiempo procesadorVentaServiceTiempo;
+        /*
+         * @Inject
+         * private ProcesadorVentaServiceTiempo procesadorVentaServiceTiempo;
+         * 
+         * @Inject
+         * private ProcesadorInventarioService procesadorInventarioService;
+         */
 
         @Inject
-        private ProcesadorInventarioService procesadorInventarioService;
+        private ProcesadorCompraService procesadorCompraService;
 
         @Override
         public int run(String... args) {
@@ -167,13 +174,16 @@ public class Main {
              * this.estadisticasVentasGlobales.mostrarEstadisticasGlobales();
              */
 
-            Venta v1 = new Venta("Deyvi Joel", 20);
-            this.procesadorVentaServiceTiempo.procesar(v1);
+            // Venta v1 = new Venta("Deyvi Joel", 20);
+            // this.procesadorVentaServiceTiempo.procesar(v1);
             // this.procesadorVentaServiceTiempo.reprocesar(v1);
 
             // this.procesadorInventarioService.registrarInvetario(v1);
 
             // this.estadisticasVentasGlobales.mostrarEstadisticasGlobales();
+
+            Compra comp1 = new Compra("Deyvi Pilataxi", Double.valueOf(100));
+            this.procesadorCompraService.procesar(comp1);
 
             return 0;
 
