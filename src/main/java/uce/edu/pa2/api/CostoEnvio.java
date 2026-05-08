@@ -4,12 +4,12 @@ import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-@Priority(1)
-public class DescuentoISD implements Descuento {
+@Priority(2)
+public class CostoEnvio implements Costo {
 
     @Override
-    public double aplicar(double valor) {
-        System.out.println("aplicando isd");
+    public double reAplicar(double valor) {
+        System.out.println("aplicando costo de envio");
         double valorADescontar = valor * 0.10;
         return valor - valorADescontar;
     }

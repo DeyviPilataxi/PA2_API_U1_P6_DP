@@ -94,10 +94,10 @@ public class Main {
          * @Inject
          * private ProcesadorInventarioService procesadorInventarioService;
          */
-
-        // private ProcesadorCompraService procesadorCompraService;
         @Inject
-        private ProcesadorImpuestoService procesadorImpuestoService;
+        private ProcesadorCompraService procesadorCompraService;
+        // @Inject
+        // private ProcesadorImpuestoService procesadorImpuestoService;
 
         @Override
         public int run(String... args) {
@@ -185,8 +185,9 @@ public class Main {
             // this.estadisticasVentasGlobales.mostrarEstadisticasGlobales();
 
             Compra comp1 = new Compra("Deyvi Pilataxi", Double.valueOf(100));
-            this.procesadorImpuestoService.procesar(comp1);
+            // this.procesadorImpuestoService.procesar(comp1);
 
+            this.procesadorCompraService.reprocesar(comp1);
             return 0;
 
         }

@@ -18,22 +18,23 @@ public class PedidoService {
 
     private NotificadorCliente cliente;
 
-    public void registrar(Pedido pedido, PagoEstrategia pago, NotificadorCliente cliente) {
-        System.out.println("Registrando pedido");
-        System.out.println("cliente: " + pedido.getCliente());
-        System.out.println("Total: " + pedido.getTotal());
-        System.out.println("Guardando en la base de datos");
+   public void registrar(Pedido pedido, PagoEstrategia pago, NotificadorCliente cliente) {
+    System.out.println("Registrando pedido");
+    System.out.println("cliente: " + pedido.getCliente());
+    System.out.println("Total: " + pedido.getTotal());
 
-        pago.realizar(pedido.getTotal());
-        this.cliente.enviarComprobante(cliente.getDestino());
+    // 1. Procesar el pago
+    pago.realizar(pedido.getTotal());
 
-        // NotificadorMail n1 = new NotificadorMail(); sin di
-        // con Di por el contenedor
-        // Notificador notificador = this.selector.seleccionar(pedido.getTotal());
-        // notificador.enviar(pedido.getDestino(), "pedido registrado");
+    // 2. Obtener el destino desde el objeto 'pedido'
+    // Asumo que tu clase Pedido tiene un método getDestino() o getEmail()
+    String destinoEncontrado = pedido.getDestino(); 
 
+    // 3. Validar y enviar
+    if (destinoEncontrado != null) {
+        // Aquí usamos el método que SÍ existe en tu interfaz
+        cliente.enviarComprobante(destinoEncontrado);
+    } else {
+        System.out.println("No hay destino: generando comprobante físico/digital.");
     }
-    // si el clinet tiene un destino registarado se envia un comprabnate de tipo pdf
-    // y si no tiene registrsado o es nulo se gebnera un comprobante digital o
-    // fisico
 }
